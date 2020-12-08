@@ -39,7 +39,7 @@ cd <path-to-cloned-repo>
 python -m src.common.trainer --model gaussian --category bottle --arch efficientnet-b4 --extract_blocks 0 1 2 3 4 5 6 7 --max_nb_epochs 0
 ```
 would perform a sum-predictor based anomaly detection on the 0-th fold of the bottle category.
-Note that `--extract_blocks` are zero indexed in our paper, whereas the architectures described in the paper are one-indexed.
+Note that `--extract_blocks` are zero indexed in our code, whereas the architectures described in the paper are one-indexed.
 
 Results of a run are stored inside a `lightning_logs` folder created at `--logpath` (default value is `os.cwd()`) with enumerating version count.
 Apart from the `metrics.csv` with the results, additional plots/run documentations are available as a tensorboard logs inside each run and can be launched using `tensorboard --logdir <path-to-version>`.
