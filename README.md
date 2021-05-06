@@ -69,12 +69,15 @@ However, code-base currently only supports 3-D RGB images due to the fact that o
 If you find our work useful, please consider citing our paper presented at ICPR2020
 
 ```
-@article{rippel2020modeling,
-  title={Modeling the Distribution of Normal Data in Pre-Trained Deep Features for Anomaly Detection},
+@InProceedings{Rippel2020aModeling,
   author={Rippel, Oliver and Mertens, Patrick and Merhof, Dorit},
-  journal={arXiv preprint arXiv:2005.14140},
-  year={2020}
-}
+  booktitle={2020 25th International Conference on Pattern Recognition (ICPR)}, 
+  title={Modeling the Distribution of Normal Data in Pre-Trained Deep Features for Anomaly Detection}, 
+  year={2021},
+  volume={},
+  number={},
+  pages={6726-6733},
+  doi={10.1109/ICPR48806.2021.9412109}}
 ```
 
 If you wish to contact us, you can do so at rippel@lfb.rwth-aachen.de
