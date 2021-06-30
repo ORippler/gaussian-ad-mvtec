@@ -1,3 +1,4 @@
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/modeling-the-distribution-of-normal-data-in/anomaly-detection-on-mvtec-ad)](https://paperswithcode.com/sota/anomaly-detection-on-mvtec-ad?p=modeling-the-distribution-of-normal-data-in)
 # gaussian-ad-mvtec
 
 This repository provides the code underlying our Publication ["Modeling the Distribution of Normal Data in Pre-Trained Deep Features for Anomaly Detection"](https://arxiv.org/abs/2005.14140) presented at ICPR2020
