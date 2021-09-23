@@ -1,7 +1,12 @@
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/modeling-the-distribution-of-normal-data-in/anomaly-detection-on-mvtec-ad)](https://paperswithcode.com/sota/anomaly-detection-on-mvtec-ad?p=modeling-the-distribution-of-normal-data-in)
+
 # gaussian-ad-mvtec
 
-This repository provides the code underlying our Publication ["Modeling the Distribution of Normal Data in Pre-Trained Deep Features for Anomaly Detection"](https://arxiv.org/abs/2005.14140) presented at ICPR2020
+This repository provides the code underlying our Publication ["Modeling the Distribution of Normal Data in Pre-Trained Deep Features for Anomaly Detection"](https://arxiv.org/abs/2005.14140) presented at ICPR2020 and its journal extension ["Gaussian Anomaly Detection by Modeling the Distribution of Normal Data in Pretrained Deep Features"](https://ieeexplore.ieee.org/abstract/document/9493210) published at IEEE TIM.
+
+## Updates
+
+* 23.09.2021: Our Journal extension has benen published at IEEE TIM. As the main contribution, we investigate the resistance of our approach to the presence of unlabeled anomalies in the training dataset, and show that our approach can even be applied in the unsupervised setting thanks to the strong prior induced by the Gaussian assumption.
 
 ## Introduction & Installation
 
@@ -67,7 +72,7 @@ However, code-base currently only supports 3-D RGB images due to the fact that o
 
 ## Citation and Contact
 
-If you find our work useful, please consider citing our paper presented at ICPR2020
+If you find our work useful, please consider citing our paper presented at ICPR2020 as well as the journal extension published at IEEE TIM
 
 ```
 @InProceedings{Rippel2020aModeling,
@@ -79,6 +84,16 @@ If you find our work useful, please consider citing our paper presented at ICPR2
   number={},
   pages={6726-6733},
   doi={10.1109/ICPR48806.2021.9412109}}
+  
+ @ARTICLE{9493210,
+  author={Rippel, Oliver and Mertens, Patrick and König, Eike and Merhof, Dorit},
+  journal={IEEE Transactions on Instrumentation and Measurement}, 
+  title={Gaussian Anomaly Detection by Modeling the Distribution of Normal Data in Pretrained Deep Features}, 
+  year={2021},
+  volume={70},
+  number={},
+  pages={1-13},
+  doi={10.1109/TIM.2021.3098381}}
 ```
 
 If you wish to contact us, you can do so at rippel@lfb.rwth-aachen.de
