@@ -215,7 +215,7 @@ class MVTecAD(AnomalyDetectionDataset):
                     images = map(
                         lambda t: (t[0], t[1], image_to_mask(t[0])), images
                     )
-                # Cache images (and move to GPU).
+                # Cache images.
                 if cache:
                     images = map(load_to_cache_with_mask, images)
             elif cache:

@@ -77,7 +77,7 @@ class AnomalyDetectionDataset(VisionDataset, metaclass=ABCMeta):
         self.uncached_transform = uncached_transform
         if self.load_masks and self.train and not self.supervised_train:
             raise ValueError(
-                "Should not load masks in training, " "would only be zeros!"
+                "Should not load masks in training, would only be zeros!"
             )
 
     @abstractmethod

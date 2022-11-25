@@ -55,7 +55,7 @@ Apart from the `metrics.csv` with the results, additional plots/run documentatio
 If you wish to recreate paper results, you can run the scripts named `table*.py` located inside `./src/scripts` using e.g.
 
 ```
-python -m scr.scripts.table1 --gpu --logpath <path-to-your-log>
+python -m src.scripts.table1 --gpu --logpath <path-to-your-log>
 ```
 
 `--gpu` enables single-gpu useage, and a `lightning_logs` folder with all individual runs will be created inside `--logpath`.
