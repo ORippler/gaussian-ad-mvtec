@@ -27,7 +27,7 @@ import numpy as np
 import cv2
 
 import torch
-from typing import NoReturn, Type
+from typing import Type
 import argparse
 from .dataset import AnomalyDetectionDataset
 
@@ -50,7 +50,7 @@ class Normalize01(ImageOnlyTransform):
         max_pixel_value: float = 255.0,
         always_apply: bool = False,
         p: float = 1.0,
-    ) -> NoReturn:
+    ) -> None:
         super(Normalize01, self).__init__(always_apply, p)
         self.max_pixel_value = max_pixel_value
 
@@ -83,7 +83,7 @@ class MaskOnlyTransform(BasicTransform):
 class MaskToSize(MaskOnlyTransform):
     """Transform mask to its fraction of the image area."""
 
-    def __init__(self, always_apply: bool = False, p: float = 1.0) -> NoReturn:
+    def __init__(self, always_apply: bool = False, p: float = 1.0) -> None:
         super().__init__(always_apply, p)
 
     def apply(self, image: np.ndarray, **params) -> np.ndarray:

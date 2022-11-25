@@ -44,7 +44,7 @@ from ..common.evaluation import (
 from ..common.utils import TensorList, batched_index_select, flatten
 from .transparent import build_transparent, MODEL_NAMES
 from tqdm import tqdm
-from typing import NoReturn, Union, Iterable, Optional, Type
+from typing import Union, Iterable, Optional, Type
 
 
 class Mahalanobis(pl.LightningModule):
@@ -52,7 +52,7 @@ class Mahalanobis(pl.LightningModule):
         self,
         hparams: argparse.Namespace,
         dataset_cls: Type[AnomalyDetectionDataset],
-    ) -> NoReturn:
+    ) -> None:
         super(Mahalanobis, self).__init__()
 
         self.hparams = hparams
@@ -136,7 +136,7 @@ class Mahalanobis(pl.LightningModule):
             return items[0].unsqueeze(0)
         return TensorList(items)
 
-    def compute_train_sed(self, features: TensorList) -> NoReturn:
+    def compute_train_sed(self, features: TensorList) -> None:
         """Compute sed normalization mean & stddev.
 
         This is the per feature independent gaussian assumption (only mean
@@ -161,7 +161,7 @@ class Mahalanobis(pl.LightningModule):
         # So t is square root of the inverse cdf at p.
         return torch.Tensor([chi2.ppf(p, k)]).sqrt()
 
-    def compute_train_gaussian(self, features: TensorList) -> NoReturn:
+    def compute_train_gaussian(self, features: TensorList) -> None:
         """
         features: TensorList
         """
@@ -185,7 +185,7 @@ class Mahalanobis(pl.LightningModule):
         )
         self.feature_count = feature_count
 
-    def compute_train_ocsvm(self, features: TensorList) -> NoReturn:
+    def compute_train_ocsvm(self, features: TensorList) -> None:
         def fit_ocsvm(samples):
             ocsvm = OneClassSVM(kernel="rbf", gamma="scale")
             ocsvm.fit(samples)
@@ -206,7 +206,7 @@ class Mahalanobis(pl.LightningModule):
 
     def compute_pca(
         self, features: TensorList, variance_threshold: float = 0.95
-    ) -> NoReturn:
+    ) -> None:
         """Compute pca normalization of teacher features retaining variance.
 
         Contrary to normal pca, this throws away the features with large
@@ -336,7 +336,7 @@ class Mahalanobis(pl.LightningModule):
     def validation_end(self, outputs: list) -> dict:
         return {"progress_bar": {}, "log": {}}
 
-    def compute_train_statistics(self) -> NoReturn:
+    def compute_train_statistics(self) -> None:
         # Use same dataloader as training.
         trainset = self.datasplit.train()
         print(

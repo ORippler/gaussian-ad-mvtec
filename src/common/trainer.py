@@ -10,7 +10,6 @@ from pytorch_lightning.callbacks import ModelCheckpoint, EarlyStopping
 from pytorch_lightning.logging import TestTubeLogger
 
 from .dataset import AnomalyDetectionDataset
-from typing import NoReturn
 import warnings
 
 
@@ -105,7 +104,7 @@ def main(
     hparams: argparse.Namespace,
     Dataset: AnomalyDetectionDataset,
     Model: LightningModule,
-) -> NoReturn:
+) -> None:
     # init module (it will init the Dataset)
     model = Model(hparams, Dataset)
 

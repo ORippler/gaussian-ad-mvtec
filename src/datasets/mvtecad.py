@@ -5,7 +5,7 @@ import cv2
 import numpy as np
 
 from ..common.dataset import AnomalyDetectionDataset
-from typing import Optional, Callable, Tuple, NoReturn, Union
+from typing import Optional, Callable, Tuple, Union
 import argparse
 
 
@@ -197,7 +197,7 @@ class MVTecAD(AnomalyDetectionDataset):
             image, mask = self.load_transform(t[0], mask_path=t[2])
             return image, t[1], mask
 
-        def add_class_images(class_folder: os.DirEntry) -> NoReturn:
+        def add_class_images(class_folder: os.DirEntry) -> None:
             """Add a fraction of the images and masks in class_folder to the samples."""
             images = filter(
                 lambda f: f.is_file() and f.name.endswith(".png"),

@@ -9,7 +9,7 @@ from sklearn.utils.validation import indexable, _num_samples
 
 from torch.utils.data import Dataset
 from torchvision.datasets.vision import VisionDataset
-from typing import Optional, Callable, NoReturn, Generator
+from typing import Optional, Callable, Generator
 from collections.abc import Iterable
 import argparse
 
@@ -46,7 +46,7 @@ class AnomalyDetectionDataset(VisionDataset, metaclass=ABCMeta):
         target_transform: Optional[Callable] = None,
         cache: bool = True,
         uncached_transform: Optional[Callable] = None,
-    ) -> NoReturn:
+    ) -> None:
         """
         Args:
             root (string): Directory with the extracted MVTec dataset images.
@@ -169,7 +169,7 @@ class FoldSplit:
         fold: int,
         test: bool = False,
         uncached_eval_transform: Optional[Callable] = None,
-    ) -> NoReturn:
+    ) -> None:
         """Init a CrossValSplit on the given dataset.
 
         Args:

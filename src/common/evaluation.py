@@ -18,7 +18,7 @@ import torch
 import torch.nn.functional as F
 from torchvision.utils import make_grid
 import cv2
-from typing import NoReturn, Optional, Callable, Sequence, Tuple
+from typing import Optional, Callable, Sequence, Tuple
 from pytorch_lightning.logging import TestTubeLogger
 
 _COLORS_ROC = ("darkorange", "red", "green")
@@ -71,7 +71,7 @@ def imscatter(
     imageData: torch.Tensor,
     unnormalize_fn: Optional[Callable] = None,
     zoom: int = 1,
-) -> NoReturn:
+) -> None:
     """Scatter plot with images instead of points on ax."""
     images = []
     for i in range(len(x)):
@@ -415,7 +415,7 @@ def connected_component_pred(
 class MinMaxSaver:
     """Save min/max predicted images for good&anomaly images during testing."""
 
-    def __init__(self, unnormalize_fn: Optional[Callable] = None) -> NoReturn:
+    def __init__(self, unnormalize_fn: Optional[Callable] = None) -> None:
         self.min_good_pred, self.max_good_pred = None, None
         self.min_anomaly_pred, self.max_anomaly_pred = None, None
         self.unnormalize_fn = unnormalize_fn
@@ -426,7 +426,7 @@ class MinMaxSaver:
         target: torch.Tensor,
         pred: torch.Tensor,
         *args: torch.Tensor
-    ) -> NoReturn:
+    ) -> None:
         """
         Store all relevant 2D-arrays in lists
         """

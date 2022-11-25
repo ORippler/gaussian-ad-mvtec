@@ -18,7 +18,7 @@ from torch import nn
 import torchvision.models as models
 
 from ..common.utils import TensorList
-from typing import NoReturn, Iterable, Tuple, Optional
+from typing import Iterable, Tuple, Optional
 
 # pull out resnet names from torchvision models
 MODEL_NAMES = sorted(
@@ -41,7 +41,7 @@ class TransparentResNet(nn.Module):
         resnet: nn.Module,
         extract_blocks: Iterable[int] = [5],
         freeze: bool = False,
-    ) -> NoReturn:
+    ) -> None:
         super().__init__()
         self.freeze = freeze
         # Forget about the fc layers, but copy out everything else.
@@ -106,7 +106,7 @@ class TransparentEfficientNet(nn.Module):
         input_size: int,
         extract_blocks: Iterable[int] = [5],
         freeze: bool = False,
-    ) -> NoReturn:
+    ) -> None:
         super().__init__()
         self.freeze = freeze
         self.input_size = input_size
@@ -172,7 +172,7 @@ class TransparentEfficientNet(nn.Module):
             for param in self.parameters():
                 param.requires_grad = False
 
-    def set_swish(self, memory_efficient: bool = True) -> NoReturn:
+    def set_swish(self, memory_efficient: bool = True) -> None:
         """Sets swish function as memory efficient (training) or standard."""
         self._swish = MemoryEfficientSwish() if memory_efficient else Swish()
         for block in self._blocks:

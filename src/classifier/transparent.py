@@ -1,7 +1,7 @@
 import torch
 from torch import nn
 import torchvision.models as models
-from typing import NoReturn, Tuple
+from typing import Tuple
 
 # pull out resnet names from torchvision models
 MODEL_NAMES = sorted(
@@ -20,7 +20,7 @@ class FeatureExtractorResnet(nn.Module):
     """Wraps a resnet for extracting last features as well as fine-tuning
     classification."""
 
-    def __init__(self, resnet: nn.Module) -> NoReturn:
+    def __init__(self, resnet: nn.Module) -> None:
         super().__init__()
         self.conv1 = resnet.conv1
         self.bn1 = resnet.bn1
@@ -56,7 +56,7 @@ class FeatureExtractorEfficientnet(nn.Module):
     classification.
     """
 
-    def __init__(self, efficientnet: nn.Module) -> NoReturn:
+    def __init__(self, efficientnet: nn.Module) -> None:
         super().__init__()
         # Keep around the original net but override the forward call.
         self.net = efficientnet

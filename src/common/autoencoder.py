@@ -8,7 +8,7 @@ import torch.nn as nn
 import torchvision.models as models
 
 import pytorch_lightning as pl
-from typing import NoReturn, Optional, Union, Tuple
+from typing import Optional, Union, Tuple
 from collections.abc import Iterable
 
 # pull out resnet names from torchvision models
@@ -24,7 +24,7 @@ MODEL_NAMES = sorted(
 class ResnetEncoder(nn.Module):
     """Wraps a ResNet for an autoencoder."""
 
-    def __init__(self, resnet: nn.Module, latent_dim: int = 32) -> NoReturn:
+    def __init__(self, resnet: nn.Module, latent_dim: int = 32) -> None:
         super().__init__()
         self.latent_dim = latent_dim
         # Forget about the fc layers, but copy out everything else.
@@ -173,7 +173,7 @@ class BasicBlock(nn.Module):
         base_width: int = 64,
         dilation: int = 1,
         norm_layer: Optional[nn.Module] = None,
-    ) -> NoReturn:
+    ) -> None:
         super(BasicBlock, self).__init__()
         if norm_layer is None:
             norm_layer = nn.BatchNorm2d
@@ -224,7 +224,7 @@ class ResnetDecoder(nn.Module):
         width_per_group: int = 64,
         replace_stride_with_dilation: Optional[Iterable] = None,
         norm_layer: Optional[nn.Module] = None,
-    ) -> NoReturn:
+    ) -> None:
         super(ResnetDecoder, self).__init__()
         if norm_layer is None:
             norm_layer = nn.BatchNorm2d

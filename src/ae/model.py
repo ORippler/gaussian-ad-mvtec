@@ -36,7 +36,7 @@ from ..common.evaluation import (
 )
 from ..common.utils import flatten
 from torchvision.utils import make_grid
-from typing import NoReturn, Tuple, Type, Iterable
+from typing import Tuple, Type, Iterable
 
 
 class AE(pl.LightningModule):
@@ -46,7 +46,7 @@ class AE(pl.LightningModule):
         self,
         hparams: argparse.Namespace,
         dataset_cls: Type[AnomalyDetectionDataset],
-    ) -> NoReturn:
+    ) -> None:
         super(AE, self).__init__()
         self.hparams = hparams
         self.encoder, self.decoder, self.input_size = build_autoencoder(

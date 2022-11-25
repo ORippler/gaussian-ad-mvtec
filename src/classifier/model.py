@@ -31,7 +31,7 @@ from ..common.evaluation import (
 )
 from ..common.utils import flatten
 from .transparent import initialize_model, MODEL_NAMES
-from typing import NoReturn, Tuple, Type, Iterable
+from typing import Tuple, Type, Iterable
 
 
 class Classifier(pl.LightningModule):
@@ -41,7 +41,7 @@ class Classifier(pl.LightningModule):
         self,
         hparams: argparse.Namespace,
         dataset_cls: Type[AnomalyDetectionDataset],
-    ) -> NoReturn:
+    ) -> None:
         super(Classifier, self).__init__()
         self.hparams = hparams
         self.model, self.input_size = initialize_model(
