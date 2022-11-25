@@ -588,15 +588,15 @@ class TensorList(UserList):
 
     def pow_(self, exponent):
         """In-place version of :func:`~TensorList.pow`."""
-        if isinstance(other, TensorList) or (
-            isinstance(other, torch.Tensor) and other.numel() > 1
+        if isinstance(exponent, TensorList) or (
+            isinstance(exponent, torch.Tensor) and exponent.numel() > 1
         ):
             # This does not implement torch's broadcasting rules.
-            for item, o in zip(self, other):
-                item.pow_(o)
+            for item, e in zip(self, exponent):
+                item.pow_(e)
         else:  # Assume scalar.
             for item in self:
-                item.pow_(other)
+                item.pow_(exponent)
         return self
 
     def prod(self, dim=None, keepdim=False, dtype=None):
@@ -811,7 +811,7 @@ class TensorList(UserList):
         """See :func:`~torch.t`."""
         # Transpose only works if this is actually a 2D tensor.
         # This may fail if the Tensors are not of the same shape.
-        return self.to_tensor().permute(*dims)
+        return self.to_tensor().t()
 
     def to(self, *args, **kwargs):
         """See :func:`~torch.Tensor.to`."""
